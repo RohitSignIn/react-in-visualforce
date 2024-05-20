@@ -1,0 +1,7 @@
+input[type='checkbox'] {
+  transform: scale(0.75);
+}
+
+button {
+  transform: scale(0.8);
+}
