@@ -65,12 +65,7 @@ function RelatedObjSelector({ objs, setSelData, recId }) {
         return { ...prevData, relatedObjs: relObjs };
       });
 
-      setAllRelatedObjData((prevData) => {
-        let relObjs = prevData.relatedObjs;
-        relObjs.splice(recId-1);
-        relObjs.push(field)
-        return { relObjs };
-      })
+      setAllRelatedObjData([])
 
     } else {
       setSelData((prevData) => {
