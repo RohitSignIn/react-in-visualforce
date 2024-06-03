@@ -1,0 +1,23 @@
+.scroll-custom::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.scroll-custom::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.scroll-custom::-webkit-scrollbar-thumb {
+    background: #9797ff;
+}
+
+/* Handle on hover */
+.scroll-custom::-webkit-scrollbar-thumb:hover {
+    background: #7878ff;
+}
+
+.field-con > .field:hover{
+    background-color: #9797ff !important;
+    color: #ffffff;
+}

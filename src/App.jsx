@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
-import EntryForm from "./components/entry_form/EntryForm";
+
+import EntryForm from "./components/EntryFormDev";
+// import EntryForm from "./components/EntryForm";
+
 import Formbuilder from "./components/Formbuilder";
-
 import FormsContext from "./context/FormsContext";
-
 import { formsData } from "./components/data";
+
+import Selector from "./components/entry_form/Selector";
 
 
 import "./App.css";
@@ -41,11 +44,14 @@ export default function App() {
       <FormsContext.Provider value={{forms, setForms, handleChange}}>
         <div className="container mx-auto px-4">
           <Header setPage={setPage} />
-          {page === "HOME" && <Home />}
-          {page === "ENTRYFORM" && <EntryForm setPage={setPage} />}
-          {page === "FORMBUILDER" && <Formbuilder />}
+          {/* {page === "HOME" && <Home />} */}
+          {/* {page === "ENTRYFORM" && <EntryForm setPage={setPage} />} */}
+          {/* {page === "FORMBUILDER" && <Formbuilder />} */}
+          {page === "HOME" && <Selector />}
         </div>
       </FormsContext.Provider>
     </>
   );
 }
+// ENTRYFORM
+

@@ -36,25 +36,25 @@ function CardTopRightOpts({ formId, draft }) {
 
         <div className="flex gap-4">
           <div>
-            <a href="#" className="text-[#227a90] text-sm">
+            <a href="#" className="text-[#9797ff] text-sm">
               Edit
             </a>
           </div>
           <p className="font-thin text-[#d3dde1]">|</p>
           <div>
-            <a href="#" className="text-[#227a90] text-sm">
+            <a href="#" className="text-[#9797ff] text-sm">
               Duplicate
             </a>
           </div>
           <p className="font-thin text-[#d3dde1]">|</p>
           <div>
-            <a href="#" className="text-[#227a90] text-sm">
+            <a href="#" className="text-[#9797ff] text-sm">
               Preview
             </a>
           </div>
           <p className="font-thin text-[#d3dde1]">|</p>
           <div>
-            <a href="#" className="text-[#227a90] text-sm">
+            <a href="#" className="text-[#9797ff] text-sm">
               Delete
             </a>
           </div>

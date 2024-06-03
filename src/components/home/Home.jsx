@@ -2,7 +2,7 @@ import Card from "../Card"
 
 function Home() {
   return (
-    <div>
+    <div className="px-6 py-2">
         <Card />
     </div>
   )

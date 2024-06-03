@@ -7,6 +7,8 @@ import CardBottomRightOpts from "./card/CardBottomRightOpts";
 
 import FormsContext from "../context/FormsContext";
 
+import "./styles/card.style.css";
+
 function Card() {
   const { forms } = useContext(FormsContext);
 
@@ -17,7 +19,7 @@ function Card() {
           return (
             <div
               key={form.id}
-              className="my-4 w-[100] h-[200px] border-[1px] border-[#e6ecef] rounded-md relative group cursor-pointer"
+              className="my-4 w-[100] h-[200px] border-[1px] border-a_light_grey rounded-md relative group"
             >
               {/* Form Check Uncheck Component */}
               <Check check={form?.check} formId={form.id} />

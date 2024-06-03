@@ -1,8 +1,10 @@
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SearchableDropdown from "./entry_form/SearchableDropdown";
 
 function EntryForm({setPage}) {
-  // let navigate = useNavigate(); 
+  const [opts, setOpts] = useState(null)
+  const [value, setValue] = useState("contract");
+
 
   const initialData = {
     formName: "",
@@ -12,24 +14,26 @@ function EntryForm({setPage}) {
     }
   }
 
+  useEffect(() => {
+    FormSetupController.getAllObjects(function(result , event){
+      setOpts(result)
+    });
+  }, [])
+
   const [data, setData] = useState(initialData)
 
   function handleInputChange(e){
     setData({...data, "formName": e.target.value})
   }
   
-  function handleSelectChange(e){
-    setData({...data, "primaryObj": {"object": e.target.value}})
-  }
-
   function handleSubmit() {
-    if(data.formName.length === 0 || data.primaryObj.object.length === 0){
+    // Task : Its Quite a taking time optimize while rendering 
+    setData({...data, "primaryObj": {"object": value}})
+    if(data.formName.length === 0 || data.primaryObj.object.length === 0 || data.primaryObj.object === "Loading"){
       return
     }
     setPage("FORMBUILDER")
   }
-
-  console.log(data)
 
   return (
     <>
@@ -60,16 +64,17 @@ function EntryForm({setPage}) {
             </p>
             <p className="font-medium">Primary Object</p>
 
-            <select className="select select-bordered w-full max-w-xs"
-              onChange={(e) => handleSelectChange(e)}
-            >
-              <option>Who shot first?</option>
-              <option>Han Solo</option>
-              <option>Greedo</option>
-            </select>
-            {/* <div className="my-4 ml-[-10px]">
-               <button className="btn btn-info text-2xl text-white">Create</button>
-          </div> */}
+            {opts && (
+              <SearchableDropdown
+                options={opts}
+                label="name"
+                id="name"
+                selectedVal={value}
+                handleChange={(val) => setValue(val)}
+                onClick={console.log("a")}
+              />
+            )}
+
           </div>
         </div>
         <button className="btn btn-neutral" onClick={handleSubmit}>Create</button>

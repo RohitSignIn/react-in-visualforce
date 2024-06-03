@@ -14,12 +14,12 @@ function CheckBoxArea({formId, formStatus, lastModified}) {
             {
               formStatus ? <input
               type="checkbox"
-              className="toggle [--tglbg:#7bc143] bg-white hover:bg-[#ecf0f3] border-0 m-0 p-0"
+              className="toggle [--tglbg:#9797ff] bg-[#ffffff] hover:bg-[#ffffff] border-0 m-0 p-0"
               checked
               onChange={handleCheckToggle}
             /> : <input
               type="checkbox"
-              className="toggle [--tglbg:#d55555] bg-white hover:bg-[#ecf0f3] border-0 m-0 p-0"
+              className="toggle [--tglbg:#e6ecef] bg-[#ffffff] hover:bg-[#ffffff] border-0 m-0 p-0"
               onChange={handleCheckToggle}
             />
             }

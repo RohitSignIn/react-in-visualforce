@@ -10,7 +10,7 @@ function Check({ check, formId }) {
   return (
     <div
       className={`transition-all ease-in-out bg-[#${
-        check ? "227a90" : "e6ecef"
+        check ? "9797ff" : "e6ecef"
       }] h-full absolute overflow-hidden w-[${
         check ? "30px" : "4px"
       }] group-hover:w-[30px]`}
