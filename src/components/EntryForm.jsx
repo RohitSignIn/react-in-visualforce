@@ -1,60 +1,48 @@
-import { useEffect, useState } from "react";
-import SearchableDropdown from "./entry_form/SearchableDropdown";
+import { useState } from "react";
+import Selector from "./entry_form/Selector";
 
-function EntryForm({setPage}) {
-  const [opts, setOpts] = useState(null)
-  const [value, setValue] = useState("contract");
+function EntryForm({ setPage }) {
+  const [selData, setSelData] = useState({
+    primaryObj: '',
+    relatedObjs: []
+  })
 
+  const [formName, setFormName] = useState('');
 
-  const initialData = {
-    formName: "",
-    primaryObj: {
-      object: "",
-      remark: ""
-    }
+  function handleInputChange(e) {
+    setFormName(e.target.value);
   }
 
-  useEffect(() => {
-    FormSetupController.getAllObjects(function(result , event){
-      setOpts(result)
-    });
-  }, [])
-
-  const [data, setData] = useState(initialData)
-
-  function handleInputChange(e){
-    setData({...data, "formName": e.target.value})
-  }
-  
   function handleSubmit() {
-    // Task : Its Quite a taking time optimize while rendering 
-    setData({...data, "primaryObj": {"object": value}})
-    if(data.formName.length === 0 || data.primaryObj.object.length === 0 || data.primaryObj.object === "Loading"){
-      return
+    if (
+      formName.length === 0 ||
+      selData.primaryObj.length === 0
+    ) {
+      return;
     }
-    setPage("FORMBUILDER")
+    setPage("FORMBUILDER");
   }
 
   return (
     <>
       {/* <EntryFormHeader handleSubmit={handleSubmit} /> */}
-      <div className="w-full">
-        <div className="flex gap-4 items-start justify-between">
+      <div className="w-full px-4">
+        <div className="flex gap-4 items-start justify-center">
           {/* Form Name */}
-          <div>
+          <div className="w-[18rem]">
             <label className="form-control w-full max-w-xs">
-              <label className="text-lg py-2 font-medium">Form name</label>
+              <label className="text-lg py-2 text-[#9797ff] font-medium">Form name</label>
               <input
                 type="text"
                 placeholder="Enter form name"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs border-[#9797ff]"
                 onChange={(e) => handleInputChange(e)}
               />
             </label>
           </div>
 
-          <div>
-            <p className="text-2xl py-2 text-[#002944]">
+          <div className="border-l-2 border-[#9797ff] h-[100vh] px-4">
+            <p className="text-2xl py-2 text-[#9797ff]">
               Create Data Structure
             </p>
             <p className="py-4">
@@ -64,20 +52,18 @@ function EntryForm({setPage}) {
             </p>
             <p className="font-medium">Primary Object</p>
 
-            {opts && (
-              <SearchableDropdown
-                options={opts}
-                label="name"
-                id="name"
-                selectedVal={value}
-                handleChange={(val) => setValue(val)}
-                onClick={console.log("a")}
-              />
-            )}
+            <div className="relative">
+              <Selector setSelData={setSelData} />
 
+              <div
+                className="absolute top-0 r-0 bg-white w-min px-6 py-1 rounded-md right-0 text-[#9797ff] border-2 border-[#9797ff] hover:bg-[#9797ff] hover:text-white cursor-pointer"
+                onClick={handleSubmit}
+              >
+                Create
+              </div>
+            </div>
           </div>
         </div>
-        <button className="btn btn-neutral" onClick={handleSubmit}>Create</button>
       </div>
     </>
   );

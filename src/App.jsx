@@ -11,47 +11,43 @@ import Formbuilder from "./components/Formbuilder";
 import FormsContext from "./context/FormsContext";
 import { formsData } from "./components/data";
 
-import Selector from "./components/entry_form/Selector";
-
+// import Selector from "./components/entry_form/Selector";
 
 import "./App.css";
 
 export default function App() {
   const [page, setPage] = useState("HOME");
-  const [forms, setForms] = useState(formsData)
+  const [forms, setForms] = useState(formsData);
 
   useEffect(() => {
     const data = forms.map((form) => {
-      return {"check":false, ...form}
-    })
-    setForms(data)
-  }, [])
+      return { check: false, ...form };
+    });
+    setForms(data);
+  }, []);
 
   // Generic function to handle change in forms data
   function handleChange(formId, key, val) {
-      const data = forms.map((form) => {
-        if(form.id === formId){
-          form[[key]] = val;
-        }
-        return form;
-      })
-      setForms(data)
-    }
-
+    const data = forms.map((form) => {
+      if (form.id === formId) {
+        form[[key]] = val;
+      }
+      return form;
+    });
+    setForms(data);
+  }
 
   return (
     <>
-      <FormsContext.Provider value={{forms, setForms, handleChange}}>
+      <FormsContext.Provider value={{ forms, setForms, handleChange }}>
         <div className="container mx-auto px-4">
           <Header setPage={setPage} />
-          {/* {page === "HOME" && <Home />} */}
-          {/* {page === "ENTRYFORM" && <EntryForm setPage={setPage} />} */}
-          {/* {page === "FORMBUILDER" && <Formbuilder />} */}
-          {page === "HOME" && <Selector />}
+          {page === "HOME" && <Home />}
+          {page === "ENTRYFORM" && <EntryForm setPage={setPage} />}
+          {page === "FORMBUILDER" && <Formbuilder />}
         </div>
       </FormsContext.Provider>
     </>
   );
 }
 // ENTRYFORM
-

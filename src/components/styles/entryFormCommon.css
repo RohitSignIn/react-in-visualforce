@@ -1,0 +1,11 @@
+.create-btn{
+    background-color: #ffffff;
+    color: var(--mainColor);
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+}
+
+.create-btn:hover{
+    background-color: var(--mainColor) !important;
+    color: #ffffff !important
+}

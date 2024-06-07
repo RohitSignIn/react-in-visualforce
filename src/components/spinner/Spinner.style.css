@@ -1,0 +1,17 @@
+.custom-spinner {
+    width: fit-content;
+    animation: rotate 1s linear infinite;
+}
+
+.custom-spinner > svg {
+    fill: #9797ff;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

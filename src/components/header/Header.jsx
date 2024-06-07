@@ -5,9 +5,11 @@ function Header({setPage}) {
   }
 
   return (
-    <header className="flex items-center justify-between bg-[#9797ff] py-2 px-4 rounded-b-md">
-      <h1 onClick={() => handleSetPage("HOME")} className="text-3xl cursor-pointer text-white">FormEasy</h1>
-      <button onClick={() => handleSetPage("ENTRYFORM")} className="py-2 px-4 bg-white text-xl text-[#9797ff] rounded-md font-medium">
+    <header className="d-flex align-items-center justify-content-between py-2 px-4 rounded-b"
+    style={{background: 'var(--mainColor)'}}
+    >
+      <h1 onClick={() => handleSetPage("HOME")} className="h3" style={{cursor: 'pointer', color: 'white'}}>FormEasy</h1>
+      <button onClick={() => handleSetPage("ENTRYFORM")} className="py-2 px-4 bg-white text-xl rounded h5" style={{color: 'var(--mainColor)', border: 'none'}}>
       Create New Form
       </button>
     </header>

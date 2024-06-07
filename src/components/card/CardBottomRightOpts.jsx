@@ -1,22 +1,27 @@
 function CardBottomRightOpts() {
   return (
-    <div className="absolute right-[0.6rem] bottom-[0.6rem]">
-      <div className="flex justify-center">
-        <div className="mx-[-5px]">
-          <button className="m-0 bg-[#9797ff] py-2 px-4 rounded-md text-lg text-white font-medium">
+    <div className="position-absolute right-[0.6rem] bottom-[0.6rem]"
+    style={{right: '0.6rem', bottom: ['0.6rem']}}
+    >
+      <div className="d-flex gap-2">
+
+          <div className="m-0 py-2 px-4 rounded h6"
+          style={{background: 'var(--mainColor)', color: '#ffffff'}}
+          >
             Migrate
-          </button>
-        </div>
-        <div className="mx-[-5px]">
-          <button className="m-0 bg-[#9797ff] py-2 px-4 rounded-md text-lg text-white font-medium">
+          </div>
+
+          <div className="m-0 py-2 px-4 rounded h6"
+          style={{background: 'var(--mainColor)', color: '#ffffff'}}
+          >
             Submission
-          </button>
-        </div>
-        <div className="mx-[-5px]">
-          <button className="m-0 bg-[#9797ff] py-2 px-4 rounded-md text-lg text-white font-medium">
+          </div>
+
+          <div className="m-0 py-2 px-4 rounded h6"
+          style={{background: 'var(--mainColor)', color: '#ffffff'}}
+          >
             Publish Options
-          </button>
-        </div>
+          </div>
       </div>
     </div>
   );

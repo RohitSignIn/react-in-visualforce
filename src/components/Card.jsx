@@ -19,7 +19,8 @@ function Card() {
           return (
             <div
               key={form.id}
-              className="my-4 w-[100] h-[200px] border-[1px] border-a_light_grey rounded-md relative group"
+              className="my-4 rounded position-relative"
+              style={{width: '100%', height: '200px', border: '1px solid #e8e8e8'}}
             >
               {/* Form Check Uncheck Component */}
               <Check check={form?.check} formId={form.id} />

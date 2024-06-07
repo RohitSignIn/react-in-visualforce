@@ -1,110 +1,93 @@
 import { useState } from "react";
-import Selector from './entry_form/Selector'
+
+import Selector from "./entry_form/Selector";
+import { generatedDataStruc, newFormPayloadStruc } from "../helperFunc/entryFormInitObjStruc";
+
+import './styles/entryFormCommon.css'
+import { createNewForm } from "../helperFunc/fetchObjects";
 
 function EntryForm({ setPage }) {
-  const initialData = {
-    formName: "",
-    primaryObj: {
-      object: "Select Primary Object",
-      relatedObj: [],
-      remark: "",
-    },
-  };
+  const [selData, setSelData] = useState(generatedDataStruc)
 
-
-  const [data, setData] = useState(initialData);
+  const [formName, setFormName] = useState('');
 
   function handleInputChange(e) {
-    setData({ ...data, formName: e.target.value });
+    setFormName(e.target.value);
   }
 
   function handleSubmit() {
     if (
-      data.formName.length === 0 ||
-      data.primaryObj.object.length === 0 ||
-      data.primaryObj.object === "Loading"
+      formName.length === 0 ||
+      selData.obj.length === 0
     ) {
       return;
     }
-    setPage("FORMBUILDER");
+
+    let stringRelatedObject = selData.relatedObjs;
+    stringRelatedObject.unshift(selData.obj)
+
+    stringRelatedObject = JSON.stringify(stringRelatedObject)
+
+    const payload = {...newFormPayloadStruc, formName:formName, primaryObject: selData.obj.objectName, relatedObject: stringRelatedObject}
+    console.log(payload)
+    
+    try {
+      createNewForm(payload)
+      setPage("FORMBUILDER");
+    } catch(e) {
+      console.log(e.message, 'boom')
+    }
+
   }
-
-  // function handleAddRelatedObj(nstdIndx = 0) {
-  //   const newRelatedObjField = {
-  //     object: "Check",
-  //     relatedObj: [],
-  //   };
-  //   setData((prevState) => {
-  //     const currentRelatedObj = Array.isArray(prevState.primaryObj.relatedObj) ? prevState.primaryObj.relatedObj : []
-  //     return {
-  //       ...prevState,
-  //       primaryObj: {
-  //         ...prevState.primaryObj,
-  //         relatedObj: [...currentRelatedObj, newRelatedObjField],
-  //       },
-  //     };
-  //   });
-  // }
-
-  console.log(data)
 
   return (
     <>
       {/* <EntryFormHeader handleSubmit={handleSubmit} /> */}
-      <div className="w-full">
-        <div className="flex gap-4 items-start justify-between">
+      <div className="w-100">
+        <div className="d-flex gap-4 align-items-start justify-content-center my-2">
           {/* Form Name */}
-          <div>
-            <label className="form-control w-full max-w-xs">
-              <label className="text-lg py-2 font-medium">Form name</label>
+          <div style={{width: '18rem'}}>
+            <label className="w-100" style={{width: 'max-content'}}>
+              <label className="h4 py-2 h5"
+              style={{color: 'var(--mainColor)'}}
+              >Form name</label>
               <input
                 type="text"
                 placeholder="Enter form name"
-                className="input input-bordered w-full max-w-xs"
+                className="form-control w-100 shadow-none"
+                style={{width: 'max-content'}}
                 onChange={(e) => handleInputChange(e)}
               />
             </label>
           </div>
 
-          <div>
-            <p className="text-2xl py-2 text-[#002944]">
+          <div className="px-4"
+          style={{borderLeft: '2px solid var(--mainColor)', height: '100vh'}}
+          >
+            <p className="h5 py-2" style={{color: 'var(--mainColor)'}}>
               Create Data Structure
             </p>
-            <p className="py-4">
+            <p className="">
               To create a form, first define the data structure of objects you
               intend to use. This will simplify and improve the form building
               process.
             </p>
-            <p className="font-medium">Primary Object</p>
+            <p className="h6">Primary Object</p>
 
-            <Selector />
+            <div className="position-relative">
 
-            {/* <div>
-              <SearchableSetupComp opts={opts} data={data} setData={setData} />
+              <Selector setSelData={setSelData} />
 
-              {data?.primaryObj.object != "Select Primary Object" &&
-                data?.primaryObj.object != "" && (
-                  <div onClick={() => handleAddRelatedObj(0)}>
-                    Add Related Object
-                  </div>
-                )}
-
-                {
-                  data.primaryObj.relatedObj && data.primaryObj.relatedObj.map((obj, indx) => {
-                    return <div key={indx}>
-                        <SearchableSetupComp opts={opts} data={data} setData={setData} />
-                    </div>
-                  })
-                }
-
-            </div> */}
-            {/* <SearchableSetupComp opts={opts} data={data} setData={setData} /> */}
+              <div
+                className="create-btn position-absolute px-2 py-1 rounded"
+                style={{top: '0', right: '0', background: '#ffffff', width: 'min-content', color: 'var(--mainColor)', border: '2px solid var(--mainColor)'}}
+                onClick={handleSubmit}
+              >
+                Create
+              </div>
+            </div>
           </div>
         </div>
-
-        <button className="btn btn-neutral" onClick={handleSubmit}>
-          Create
-        </button>
       </div>
     </>
   );

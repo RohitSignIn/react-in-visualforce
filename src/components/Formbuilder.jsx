@@ -7,26 +7,16 @@ import "formBuilder";
 import axios from "axios";
 import FormRender from "./FormRender";
 
+import './styles/formbuilder.style.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 const fields = [
   {
     name: "Accounts",
     controls: [
       {
-        type: "autocomplete",
-        label: "Custom Autocomplete",
-        required: true,
-        values: [
-          { label: "SQL" },
-          { label: "C#" },
-          { label: "JavaScript" },
-          { label: "Java" },
-          { label: "Python" },
-          { label: "C++" },
-          { label: "PHP" },
-          { label: "Swift" },
-          { label: "Ruby" },
-        ],
-      },
+        type: "button",
+        label: "Custom Button",      },
       {
         label: "New Section",
         attrs: {
@@ -57,13 +47,13 @@ const fields = [
           { label: "Ruby" },
         ],
       },
-      // {
-      //   label: 'Star Rating',
-      //   attrs: {
-      //     type: 'starRating',
-      //   },
-      //   icon: '🌟',
-      // },
+      {
+        label: 'Star Rating',
+        attrs: {
+          type: 'starRating',
+        },
+        icon: '🌟',
+      },
       {
         type: "checkbox-group",
         subtype: "custom-group",
@@ -115,14 +105,10 @@ const formData = [
     label: "This is a demonstration of formBuilder running in a React project.",
   },
   {
-    type: "button",
-    subtype: "submit",
-    label: "Submit",
-  },
-  {
-    label: "New Section",
-    type: "button",
-    className: 'new-section'
+    type: 'button',
+    subtype: 'submit',
+    label: 'Submit',
+    className: 'form-submit-btn'
   },
 ];
 
@@ -171,25 +157,37 @@ function Formbuilder() {
     console.log(FormRender(builderCf.actions.getData("json")));
   }
 
+  function handleAddNewSection() {
+    var field = {
+      type: 'section',
+      class: 'form-control',
+      label: 'Title'
+    }
+    var index = undefined
+    builderCf.actions.addField(field, index)
+  }
+
   return (
     <>
-      <div>
-        <div className="px-4 py-2">
-          <form className="py-2" id="fb-editor" ref={fb}></form>
+        <div className="p-2">
+          <div id="build-wrap" ref={fb} className="build-wrap container py-4" style={{position: 'relative'}}>
+            <button onClick={handleAddNewSection} id="appendSection" className="addSectionBtn" data-label="Appended Section" type="button">Add New Section</button>
+          </div>
           <button
-            className="btn bg-[#9797ff] text-[#fff] font-medium text-lg"
+            className="btn btn-md"
+            style={{background: 'var(--mainColor)', color: '#ffffff'}}
             onClick={handleBtnClick}
           >
-            Submit
+            Create Template
           </button>
           <button
-            className="btn btn-[#9797ff] font-medium text-lg"
+            className="btn btn-md rounded"
+            style={{border: '2px solid var(--mainColor)', color: 'var(--mainColor)'}}
             onClick={handleFormRender}
           >
             Preview
           </button>
         </div>
-      </div>
     </>
   );
 }

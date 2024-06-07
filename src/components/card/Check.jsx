@@ -9,18 +9,16 @@ function Check({ check, formId }) {
 
   return (
     <div
-      className={`transition-all ease-in-out bg-[#${
-        check ? "9797ff" : "e6ecef"
-      }] h-full absolute overflow-hidden w-[${
-        check ? "30px" : "4px"
-      }] group-hover:w-[30px]`}
-
+    className="position-absolute overflow-hidden h-100"
+      style={{background: `${check ? 'var(--mainColor)' : '#e6ecef'}`, width: `${check ? "30px" : "30px"}`}}
       onClick={() => handleChange(formId, "check", !check)}
     >
-      <div className="h-full flex items-center">
-        <div className="p-2 cursor-pointer">
+      <div className="h-100 d-flex align-items-center">
+        <div className="p-2"
+        style={{cursor: 'pointer'}}
+        >
           <FaCheck
-            className={`text-sm`}
+            className={`h6`}
             style={{"fill": `${check ? "#ffffff" : "#3c3d3e"}`}}
           />
         </div>

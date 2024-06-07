@@ -3,21 +3,25 @@ import CheckBoxArea from "./CheckBoxArea";
 
 function CardMain({formId, formName, primaryObj, formStatus, lastModified }) {
   return (
-    <div className="ml-[2.5rem] flex w-full h-[200px] items-center px-4">
+    <div className="d-flex w-100 align-items-center px-4"
+    style={{marginLeft: '2.5rem', height: '200px'}}
+    >
       <div>
-        <label className="text-3xl">{formName}</label>
-        <div className="text-[#c9c9c9] flex gap-2 text-base py-[1rem] italic">
+        <label style={{fontSize: '1.8rem'}}>{formName}</label>
+        <div className="d-flex gap-2 py-2 font-italic"
+        style={{color: '#c9c9c9'}}
+        >
           <div>Primary Object: </div>
 
-          <div className="flex flex-col">
+          <div className="d-flex flex-column">
             <div>{primaryObj.object}</div>
 
             {/* If Remark Present */}
             {primaryObj.remark && (
               <div>
-                <div className="flex gap-2">
+                <div className="d-flex gap-2">
                   <div>
-                    <BsArrow90DegDown className="transform rotate-270" />
+                    <BsArrow90DegDown style={{transform: 'rotate(270deg)'}} />
                   </div>
                   <div>{primaryObj.remark}</div>
                 </div>

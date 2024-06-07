@@ -9,7 +9,7 @@
 
 /* Handle */
 .scroll-custom::-webkit-scrollbar-thumb {
-    background: #9797ff;
+    background: var(--mainColor);
 }
 
 /* Handle on hover */
@@ -18,6 +18,6 @@
 }
 
 .field-con > .field:hover{
-    background-color: #9797ff !important;
+    background-color: var(--mainColor) !important;
     color: #ffffff;
 }

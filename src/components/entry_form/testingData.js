@@ -149,7 +149,7 @@ export const subObjsData = [
   {
     groupName: "lookup",
     objectApiName: "User",
-    objectName: "User",
+    objectName: "Contact",
     objectReferenceField: {
       fieldAccess: "F",
       fieldApiName: "OwnerId",

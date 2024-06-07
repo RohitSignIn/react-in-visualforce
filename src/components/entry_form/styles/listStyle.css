@@ -1,0 +1,12 @@
+.list-h:hover{
+    background-color: #e7e7e7;
+}
+
+.addRelObj {
+    transition: all 150ms ease-in-out;
+}
+
+.addRelObj:hover {
+    background-color: #9797ff;
+    color: #ffffff !important; 
+}

@@ -1,5 +1,8 @@
 import { useContext } from "react";
+
 import FormsContext from "../../context/FormsContext";
+
+import { MdCancel } from "react-icons/md";
 
 function CardTopRightOpts({ formId, draft }) {
   const { handleChange } = useContext(FormsContext);
@@ -11,50 +14,43 @@ function CardTopRightOpts({ formId, draft }) {
   }
 
   return (
-    <div className="absolute right-0 top-0">
-      <div className="flex gap-[3rem] bg-[#e6ecef] py-2 px-4 rounded-bl-md items-center">
+    <div className="position-absolute"
+    style={{right: '0', top: '0'}}
+    >
+      <div className="d-flex py-2 px-4 align-items-center"
+      style={{gap: '3rem', background: '#e6ecef', borderBottomLeftRadius: "8px"}}
+      >
         {/* Draft Cross Btn */}
         {draft && (
-          <div className="badge badge-white gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block w-4 h-4 stroke-current"
-              onClick={handleDraftClose}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-            Draft
+          <div className="d-flex gap-1 px-2 rounded"
+          style={{height: '1.4rem', background: '#ffffff'}}
+          >
+            <p style={{fontSize: '0.8rem'}}><MdCancel onClick={handleDraftClose} style={{cursor: 'pointer'}} /></p>
+            <p style={{fontSize: '0.8rem'}}>Draft</p>
           </div>
         )}
 
-        <div className="flex gap-4">
+        <div className="d-flex gap-4">
           <div>
-            <a href="#" className="text-[#9797ff] text-sm">
+            <a href="#" className="h6 text-decoration-none" style={{color: 'var(--mainColor)'}}>
               Edit
             </a>
           </div>
-          <p className="font-thin text-[#d3dde1]">|</p>
+          <p style={{border: '1px solid #d3dde1', height: '1.5rem', margin: 0}}></p>
           <div>
-            <a href="#" className="text-[#9797ff] text-sm">
+            <a href="#" className="h6 text-decoration-none" style={{color: 'var(--mainColor)'}}>
               Duplicate
             </a>
           </div>
-          <p className="font-thin text-[#d3dde1]">|</p>
+          <p style={{border: '1px solid #d3dde1', height: '1.5rem', margin: 0}}></p>
           <div>
-            <a href="#" className="text-[#9797ff] text-sm">
+            <a href="#" className="h6 text-decoration-none" style={{color: 'var(--mainColor)'}}>
               Preview
             </a>
           </div>
-          <p className="font-thin text-[#d3dde1]">|</p>
+          <p style={{border: '1px solid #d3dde1', height: '1.5rem', margin: 0}}></p>
           <div>
-            <a href="#" className="text-[#9797ff] text-sm">
+            <a href="#" className="h6 text-decoration-none" style={{color: 'var(--mainColor)'}}>
               Delete
             </a>
           </div>
