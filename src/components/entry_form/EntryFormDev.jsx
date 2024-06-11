@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-import Selector from "./entry_form/Selector";
-import { generatedDataStruc, newFormPayloadStruc } from "../helperFunc/entryFormInitObjStruc";
+import Selector from "./Selector";
+import { generatedDataStruc, newFormPayloadStruc } from "../../helperFunc/entryFormInitObjStruc";
 
-import './styles/entryFormCommon.css'
-import { createNewForm } from "../helperFunc/fetchObjects";
+import { createNewForm } from "../../helperFunc/fetchObjects";
+
+import './styles/entryForm.style.css'
+import Header from "../header/Header";
 
 function EntryForm({ setPage }) {
   const [selData, setSelData] = useState(generatedDataStruc)
@@ -35,14 +37,15 @@ function EntryForm({ setPage }) {
       createNewForm(payload)
       setPage("FORMBUILDER");
     } catch(e) {
-      console.log(e.message, 'boom')
+      setPage("FORMBUILDER");
+      console.log(e.message, 'Load in Development...')
     }
-
   }
 
   return (
     <>
       {/* <EntryFormHeader handleSubmit={handleSubmit} /> */}
+      <Header handleSubmit={handleSubmit} />
       <div className="w-100">
         <div className="d-flex gap-4 align-items-start justify-content-center my-2">
           {/* Form Name */}
@@ -62,7 +65,7 @@ function EntryForm({ setPage }) {
           </div>
 
           <div className="px-4"
-          style={{borderLeft: '2px solid var(--mainColor)', height: '100vh'}}
+          style={{borderLeft: '2px solid var(--mainColor)', minHeight: '100vh'}}
           >
             <p className="h5 py-2" style={{color: 'var(--mainColor)'}}>
               Create Data Structure

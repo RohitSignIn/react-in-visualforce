@@ -8,7 +8,7 @@ function EntryFormHeader({handleSubmit}) {
         <h1 className="text-2xl">Home</h1>
       </a>
       <button className="py-2 px-4 bg-blue-400 text-2xl text-white rounded-md font-medium"
-      onClick={handlceSubmit}
+      onClick={handleSubmit}
       >Create</button>
     </header>
   );

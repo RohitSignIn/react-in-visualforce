@@ -1,3 +1,31 @@
 :root{
-    --mainColor: #9797ff 
+    /* Palette */
+    --color1: #D8EFD3;
+    --color2: #95D2B3;
+    --color3: #55AD9B;
+    --color4: #F1F8E8;
+
+    --mainColor: var(--color3);
+    --bodyCol: #fff;
+
+    --lightColText: #ffffff;
+    --darkColText: #000000;
+
+
+    /* Form Builder -- START */
+        /*  Background Color */
+        --formBorderCol: var(--color1);
+        --submitBtnCol: var(--color2);
+        --catgBtnCol: var(--mainColor);
+        --newSectionBtnCol: var(--mainColor);
+        --scrollThumbCol: var(--mainColor);
+        --formCol: var(--lightColText);
+
+        /* Text */
+        --submitBtnTextCol: var(--lightColText);
+        --catgBtnTextCol: var(--lightColText);
+        --newSectionBtnTextCol: var(--lightColText);
+        --controllerTextCol: var(--mainColor);
+        --formTextCol: var(--darkColText);
+    /* Form Builder -- END */
 }

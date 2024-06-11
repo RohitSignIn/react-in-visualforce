@@ -1,0 +1,57 @@
+.addSectionBtn {
+  z-index: 1000;
+  cursor: pointer;
+  border: none;
+  border: 6px solid #ffffff;
+  position: absolute;
+  bottom: 6px;
+  right: 300px;
+  border-radius: 50px;
+  padding: 0.3rem 0.9rem;
+  color: var(--newSectionBtnTextCol);
+  font-size: 0.95rem;
+  outline: none;
+  background-color: var(--newSectionBtnCol);
+}
+
+/* .form-submit-btn {
+    font-size: 1.2rem !important;
+    border-radius: 8px !important;
+  } */
+
+.stage-wrap {
+  background-color: var(--formCol);
+  border-color: var(--formBorderCol) !important;
+  color: var(--formTextCol) !important;
+}
+
+.form-submit-btn {
+  background-color: var(--submitBtnCol) !important;
+  color: var(--submitBtnTextCol) !important;
+}
+
+.frmb-control p {
+  background-color: var(--catgBtnCol) !important;
+  color: var(--catgBtnTextCol) !important;
+}
+
+/* Scrollbar */
+.frmb-control::-webkit-scrollbar-thumb {
+  background: var(--mainColor) !important;
+  /* cursor: all-scroll; */
+}
+
+.frmb-control::-webkit-scrollbar-thumb:hover {
+  background: var(--color2) !important;
+}
+
+/* In FormBuilder Comp */
+.create-temp-btn, .preview-btn {
+  background: var(--color4) !important;
+  color: var(--mainColor) !important;
+  font-weight: 600 !important;
+}
+
+.preview-btn {
+  margin-left: 0.8rem !important;
+}

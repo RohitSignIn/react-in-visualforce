@@ -6,11 +6,11 @@ import { fetchAllObjs } from "../../helperFunc/fetchObjects";
 import fieldSelect from "../../helperFunc/fieldSelect";
 import addSubField from "../../helperFunc/addSubField";
 
-import "./styles/scrollStyle.css";
-import "./styles/listStyle.css";
 import SideLine from "./inner_comp/SideLine";
 import SelectComp from "./inner_comp/SelectComp";
-// import CustomSpinner from "../spinner/CustomSpinner";
+
+import "./styles/scrollStyle.css";
+import "./styles/listStyle.css";
 
 function Selector({ setSelData }) {
   // const [loader, setLoader] = useState(true);

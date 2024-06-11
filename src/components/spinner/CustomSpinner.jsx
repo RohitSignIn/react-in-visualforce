@@ -1,4 +1,4 @@
-import "./Spinner.style.css"
+import "./style/Spinner.style.css"
 
 function CustomSpinner() {
   return (

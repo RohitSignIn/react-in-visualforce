@@ -1,4 +1,4 @@
-import $ from '../utility/jq';
+import $ from '../../utility/jq';
 import "formBuilder/dist/form-render.min";
 
 export default function FormRender(data) {

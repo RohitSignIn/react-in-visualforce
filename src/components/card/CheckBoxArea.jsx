@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import FormsContext from "../../context/FormsContext";
 
-import "./commonCheckBoxStyle.css";
+import "./styles/commonCheckBoxStyle.css";
 
 function CheckBoxArea({ formId, formStatus, lastModified }) {
   const { handleChange } = useContext(FormsContext);

@@ -1,22 +1,20 @@
 // import EntryForm from "./components/entry_form/EntryForm"
 import { useEffect, useState } from "react";
 
-import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 
-import EntryForm from "./components/EntryFormDev";
-// import EntryForm from "./components/EntryForm";
+import EntryForm from "./components/entry_form/EntryFormDev";
+import Formbuilder from "./components/form_builder/Formbuilder";
 
-import Formbuilder from "./components/Formbuilder";
 import FormsContext from "./context/FormsContext";
-import { formsData } from "./components/data";
+import PageContext from "./context/PageContext";
 
-// import Selector from "./components/entry_form/Selector";
+import { formsData } from "./components/card/data";
 
 import "./App.css";
 
 export default function App() {
-  const [page, setPage] = useState("HOME");
+  const [page, setPage] = useState("FORMBUILDER");
   const [forms, setForms] = useState(formsData);
 
   useEffect(() => {
@@ -40,14 +38,16 @@ export default function App() {
   return (
     <>
       <FormsContext.Provider value={{ forms, setForms, handleChange }}>
-        <div className="container mx-auto px-4">
-          <Header setPage={setPage} />
-          {page === "HOME" && <Home />}
-          {page === "ENTRYFORM" && <EntryForm setPage={setPage} />}
-          {page === "FORMBUILDER" && <Formbuilder />}
-        </div>
+        <PageContext.Provider value={{page, setPage}}>
+          <div className="container">
+            {/* <Header setPage={setPage} page={page} /> */}
+            {page === "HOME" && <Home />}
+            {page === "ENTRYFORM" && <EntryForm setPage={setPage} />}
+            {page === "FORMBUILDER" && <Formbuilder />}
+          </div>
+        </PageContext.Provider>
       </FormsContext.Provider>
     </>
   );
 }
-// ENTRYFORM
+// FORMBUILDER

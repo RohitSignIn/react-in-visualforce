@@ -9,8 +9,8 @@ function Check({ check, formId }) {
 
   return (
     <div
-    className="position-absolute overflow-hidden h-100"
-      style={{background: `${check ? 'var(--mainColor)' : '#e6ecef'}`, width: `${check ? "30px" : "30px"}`}}
+    className="check position-absolute overflow-hidden h-100"
+      style={{background: `${check ? 'var(--mainColor)' : '#e6ecef'}`, width: `30px`}}
       onClick={() => handleChange(formId, "check", !check)}
     >
       <div className="h-100 d-flex align-items-center">

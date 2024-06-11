@@ -7,6 +7,6 @@
 }
 
 .addRelObj:hover {
-    background-color: #9797ff;
+    background-color: var(--mainColor);
     color: #ffffff !important; 
 }

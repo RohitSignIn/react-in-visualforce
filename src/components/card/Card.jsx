@@ -1,11 +1,11 @@
 import { useContext } from "react";
 
-import Check from "./card/Check";
-import CardMain from "./card/CardMain";
-import CardTopRightOpts from "./card/CardTopRightOpts";
-import CardBottomRightOpts from "./card/CardBottomRightOpts";
+import Check from "./Check";
+import CardMain from "./CardMain";
+import CardTopRightOpts from "./CardTopRightOpts";
+import CardBottomRightOpts from "./CardBottomRightOpts";
 
-import FormsContext from "../context/FormsContext";
+import FormsContext from "../../context/FormsContext";
 
 import "./styles/card.style.css";
 
@@ -19,8 +19,7 @@ function Card() {
           return (
             <div
               key={form.id}
-              className="my-4 rounded position-relative"
-              style={{width: '100%', height: '200px', border: '1px solid #e8e8e8'}}
+              className="card my-4 rounded position-relative"
             >
               {/* Form Check Uncheck Component */}
               <Check check={form?.check} formId={form.id} />
